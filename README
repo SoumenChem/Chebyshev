@@ -1,4 +1,4 @@
-These files are for adding Chebyshev propagator in the RT-TDDFT module in the NWChem. 
+These files can be used for adding Chebyshev propagator in the RT-TDDFT module in the NWChem. 
 
 
 To set it up transfer all the files from the corresponding folders to the same folders in nwchem/src/nwdft/rt_tddft i.e
