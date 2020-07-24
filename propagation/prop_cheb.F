@@ -217,7 +217,7 @@ c      call ga_print(g_zcheb_n)
 c     call ga_print(g_zcheb)
       if (IT.eq.2) GO TO 20
 
-       if ( mat_is_same_semiemp(g_zcheb_n_1,g_zcheb_n,test)) then
+       if ( mat_is_same(g_zcheb_n_1,g_zcheb_n,test)) then
         CONVERGED = .true.
        ELSE
         CONVERGED = .false.
