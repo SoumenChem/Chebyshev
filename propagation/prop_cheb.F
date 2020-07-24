@@ -157,7 +157,7 @@ c#include "cdft.fh"
       double precision alpha !scaling factor
       double precision bessfun !bessel function
 c     double complex zi
-      logical, external ::mat_is_same
+c     logical, external ::mat_is_same
 
       LOGICAL CONVERGED,status
       DATA TEST /1.0D-10/
