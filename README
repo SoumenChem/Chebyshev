@@ -7,7 +7,7 @@ To set it up transfer all the files from the corresponding folders to the same f
 
 (ii) Trnasfer rt_tddft_os_prop.F to nwchem/src/nwdft/rt_tddft/openshell/ 
 
-(iii) Trnasfer prop_chebyshev_poly.F, prop_cheb.F  to nwchem/src/nwdft/rt_tddft/propagation/
+(iii) Trnasfer GNUmakefile prop_chebyshev_poly.F, prop_cheb.F  to nwchem/src/nwdft/rt_tddft/propagation/
 
 (iv) Transfer rt_tddft_input.F to nwchem/src/nwdft/rt_tddft/input/
 
