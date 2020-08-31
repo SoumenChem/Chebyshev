@@ -134,7 +134,7 @@ C
      &      dbl_mb(ievals(imat)))
            scalefock(imat) = dbl_mb(ievals(imat)+params%ns_ao)
      &     -dbl_mb(ievals(imat)+0)   
-         write(6,*)"scale",scalefock(imat)  
+c        write(6,*)"scale",scalefock(imat)  
            end do 
           end if
  
