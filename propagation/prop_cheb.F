@@ -1,4 +1,4 @@
-      subroutine prop_cheb(g_zdens,g_zfock,GPARAM,nbf,dt)
+      subroutine prop_cheb(g_zdens,g_zfock,GPARAM,shift,nbf,dt)
 
       implicit none
 
@@ -16,8 +16,8 @@ c#include "cdft.fh"
 #include "rt_tddft.fh"
 
       double precision  GPARAM !(emax-emin)
-      double precision fscale
-      double complex zfscale
+      double precision fscale, shift
+      double complex zfscale, zshift
       double precision emin
       double precision alpha !scaling factor
       double precision dt !time step
@@ -75,9 +75,11 @@ C---------------------------------------------------------------------
       fscale = 0.0d0
       alpha  = 0.0d0
       fscale = 1/(1.5*GPARAM)
-      zfscale = dcmplx(fscale,0.0d0)  
+      zfscale = dcmplx(fscale,0.0d0) 
+      zshift = dcmplx(shift,0.0d0) 
 c     call ga_print(g_zfock)
 c     write(6,*)"fscale",fscale
+      call ga_add(z0,g_zfock,-zshift,g_zt_n_2,g_zfock)
       call ga_scale(g_zfock,zfscale)
 
 c     call ga_print(g_zfock)      
@@ -95,7 +97,7 @@ c     write(6,*)"alpha",alpha
      1 g_zcheb,nbf,alpha)
 
 c       call ga_print(g_zcheb)
- 
+         call ga_scale(g_zcheb,exp(-zi*dt*shift)) 
          if (.not. mat_is_unitary (g_zcheb, 1d-10))
      &   call errquit('prop_chebyshev: g_zcheb not unitary',0,
      1    MA_ERR)

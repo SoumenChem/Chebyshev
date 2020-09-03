@@ -52,7 +52,6 @@ C     (parameters that must be supplied--no defaults)
 C     == External ==
       integer, external :: atoi
 
-      write(6,*)"in rttddft"
 C     (values which have no defaults and must be supplied)
       got_tmin = .false.
       got_tmax = .false.
@@ -77,7 +76,6 @@ C     Dump defaults into rtdb (will be replaced later if values found in
 C     input deck).
 C
       call rt_tddft_input_put_defaults (rtdb)
-
 
       
 C     
@@ -165,6 +163,7 @@ C     (no need to do anything--will use SCF vectors as starting point if nothing
             endif
                   
             
+
 C
 C     applied field sub-block
 C
@@ -180,7 +179,6 @@ C
 
             call rt_tddft_input_field (rtdb, field_name, nfields)
 
-
             
 
 C
@@ -188,7 +186,6 @@ C     visualization sub-block
 C
          elseif (inp_compare(.false.,test,'visualization')) then
             call rt_tddft_input_visualization (rtdb)
-
 
 C
 C     MO CAP sub-block
@@ -346,7 +343,6 @@ C
 C
 C     Propagator
 C
-         write(6,*)"getting propagator"
          elseif (inp_compare(.false.,test,'propagator')) then
 
             if (.not.inp_a(method)) then
@@ -524,7 +520,6 @@ C      if (.not.got_tmin) call errquit(pname//"must supply tmin",0,0)
 C     HARDCODED TMIN
 C      tmin = -5.0*dt
       tmin = 0d0
-
 
       if (.not.rtdb_put(rtdb,'rt_tddft:tmin',mt_dbl,1,tmin))
      $     call errquit(pname//'Write failed to rtdb',0,RTDB_ERR)

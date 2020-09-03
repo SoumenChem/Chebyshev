@@ -46,7 +46,7 @@ C     == Variables ==
       logical converged
       integer iinter
       double precision elapsed
-      double precision scalefock(nmats)
+      double precision scalefock(nmats), shift(nmats)
       double precision ttdt     ! t+dt
       character*256 outstring
       integer num_same
@@ -133,14 +133,15 @@ C
            call ga_diag_std (g_fockre(imat), g_movecs_gs(imat),
      &      dbl_mb(ievals(imat)))
            scalefock(imat) = dbl_mb(ievals(imat)+params%ns_ao)
-     &     -dbl_mb(ievals(imat)+0)   
+     &     -dbl_mb(ievals(imat)+0) 
+            shift(imat)=(1.5*scalefock(imat)+dbl_mb(ievals(imat)+0))  
 c        write(6,*)"scale",scalefock(imat)  
            end do 
           end if
  
         do imat = 1, nmats
          call prop_cheb(g_zdens_mo(imat),g_zfock(imat),
-     &    scalefock(imat),params%ns_mo,dt)
+     &    scalefock(imat),shift(imat),params%ns_mo,dt)
         end do
 
 
