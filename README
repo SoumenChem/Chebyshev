@@ -3,15 +3,19 @@ These files can be used for adding Chebyshev propagator in the RT-TDDFT module i
 
 To set it up transfer all the files from the corresponding folders to the same folders in nwchem/src/nwdft/rt_tddft i.e
 
-(i) Trnasfer rt_tddft_cs_prop.F to nwchem/src/nwdft/rt_tddft/closedshell/
+(i) Trnasfer rt_tddft_cs_prop.F from closedshell folder to nwchem/src/nwdft/rt_tddft/closedshell/
 
-(ii) Trnasfer rt_tddft_os_prop.F to nwchem/src/nwdft/rt_tddft/openshell/ 
+(ii) Trnasfer rt_tddft_os_prop.F from openshell folder to nwchem/src/nwdft/rt_tddft/openshell/ 
 
-(iii) Trnasfer GNUmakefile prop_chebyshev_poly.F, prop_cheb.F  to nwchem/src/nwdft/rt_tddft/propagation/
+(iii) Trnasfer GNUmakefile prop_chebyshev_poly.F, prop_cheb.F from propagator folder  to nwchem/src/nwdft/rt_tddft/propagation/
 
-(iv) Transfer rt_tddft_input.F to nwchem/src/nwdft/rt_tddft/input/
+(iv) Transfer rt_tddft_input.F from input folder to nwchem/src/nwdft/rt_tddft/input/
 
-(v) Compile again
+(v) Transfer rt_tddft_header.F from header folder to nwchem/src/nwdft/rt_tddft/header 
+
+(vi) Transfer matutils.F from header folder to nwchem/src/nwdft/rt_tddft/matutils
+
+(vii) Compile again
 
 
 To use Chebyshev propagator, use "Propagator Chebyshev" keyword in the rt_tddft section.
